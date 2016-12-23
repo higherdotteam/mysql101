@@ -22,8 +22,26 @@ int main(int argc, char** argv) {
     }
     if (last != ';') {
       puts("\nYou forgot the ;\n");
-    } else {
-    }
+		} else if (strcmp(input, "show tables;") == 0) {
+			puts("+-------------------+");
+			puts("| Tables_in_this_db |");
+			puts("+-------------------+");
+			puts("| companies         |");
+			puts("| people            |");
+			puts("| hackernews        |");
+			puts("+-------------------+");
+			puts("3 rows in set (0.00 sec)\n");
+			puts("  HINT: type desc companies;\n");
+		} else if (strcmp(input, "desc companies;") == 0) {
+			puts("+-------------+--------------+------+-----+---------+----------------+");
+			puts("| Field       | Type         | Null | Key | Default | Extra          |");
+			puts("+-------------+--------------+------+-----+---------+----------------+");
+			puts("| id          | int(11)      | NO   | PRI | NULL    | auto_increment |");
+			puts("3 rows in set (0.00 sec)\n");
+			puts("  HINT: type desc companies;\n");
+		} else {
+			puts("\nI don't understand.\n");
+		}
 
     free(input);
 
