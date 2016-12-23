@@ -6,6 +6,13 @@
 char **name_completion(const char *, int, int);
 char *name_generator(const char *, int);
 
+char *names[] = {
+  "companies",
+  "people",
+  "hackernews",
+  NULL
+};
+
 int main(int argc, char** argv) {
   rl_attempted_completion_function = name_completion;
 
@@ -60,5 +67,19 @@ char **name_completion(const char *text, int start, int end) {
 }
 
 char *name_generator(const char *text, int state) {
+	static int list_index, len;
+  char *name;
+
+  if (!state) {
+    list_index = 0;
+    len = strlen(text);
+  }
+
+	while ((name = names[list_index++])) {
+		if (strncmp(name, text, len) == 0) {
+			return strdup(name);
+		}
+	}
+
   return NULL;
 }
