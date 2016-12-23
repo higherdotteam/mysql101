@@ -1,7 +1,8 @@
 package main
 
 import "fmt"
-import "time"
+import "bufio"
+import "os"
 
 func main() {
 	fmt.Println("mysql101 by higher.team")
@@ -10,5 +11,15 @@ func main() {
 	fmt.Println("")
 	fmt.Print("mysql> ")
 
-	time.Sleep(time.Minute)
+	bio := bufio.NewReader(os.Stdin)
+	line, _, _ := bio.ReadLine()
+	for {
+		s := string(line)
+		if s == "quit" {
+			break
+		}
+		fmt.Print("mysql> ")
+		line, _, _ = bio.ReadLine()
+	}
+
 }
