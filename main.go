@@ -3,6 +3,7 @@ package main
 import "fmt"
 import "bufio"
 import "os"
+import "strings"
 
 func main() {
 	fmt.Println("mysql101 by higher.team")
@@ -17,6 +18,8 @@ func main() {
 		s := string(line)
 		if s == "quit" {
 			break
+		} else if strings.HasSuffix(s, ";") == false {
+			fmt.Println("\nYou forgot the ;\n")
 		}
 		fmt.Print("mysql> ")
 		line, _, _ = bio.ReadLine()
