@@ -14,14 +14,17 @@ int main(int argc, char** argv) {
     char* input = readline("mysql> ");
     add_history(input);
     int size = strlen(input);
-    printf("\nYou said %d\n", size);
+    char last = input[size-1];
 
     if (strcmp(input, "quit") == 0) {
       puts("Bye");
       return 0;
     }
+    if (last != ';') {
+      puts("\nYou forgot the ;\n");
+    } else {
+    }
 
-    printf("\nYou said %d\n", size);
     free(input);
 
   }
