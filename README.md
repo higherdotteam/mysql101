@@ -8,5 +8,6 @@ This is a practice mysql command line interface.
 # to compile
 
 brew install readline
+
 make
 
