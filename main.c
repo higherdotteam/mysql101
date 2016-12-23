@@ -13,6 +13,12 @@ char *names[] = {
   NULL
 };
 
+int startsWith(const char *str, const char *pre) {
+  size_t lenpre = strlen(pre),
+         lenstr = strlen(str);
+  return lenstr < lenpre ? 0 : strncmp(pre, str, lenpre) == 0;
+}
+
 int main(int argc, char** argv) {
   rl_attempted_completion_function = name_completion;
 
@@ -33,7 +39,7 @@ int main(int argc, char** argv) {
     }
     if (last != ';') {
       puts("\nYou forgot the ;\n");
-		} else if (strcmp(input, "show tables;") == 0) {
+		} else if (startsWith(input, "show tables") == 1) {
 			puts("+-------------------+");
 			puts("| Tables_in_this_db |");
 			puts("+-------------------+");
@@ -43,7 +49,7 @@ int main(int argc, char** argv) {
 			puts("+-------------------+");
 			puts("3 rows in set (0.00 sec)\n");
 			puts("  HINT: type desc companies;\n");
-		} else if (strcmp(input, "desc companies;") == 0) {
+		} else if (startsWith(input, "desc companies") == 1) {
 			puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("| Field       | Type         | Null | Key | Default | Extra          |");
 			puts("+-------------+--------------+------+-----+---------+----------------+");
