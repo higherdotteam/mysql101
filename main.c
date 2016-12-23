@@ -54,8 +54,19 @@ int main(int argc, char** argv) {
 			puts("| Field       | Type         | Null | Key | Default | Extra          |");
 			puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("| id          | int(11)      | NO   | PRI | NULL    | auto_increment |");
-			puts("3 rows in set (0.00 sec)\n");
-			puts("  HINT: type desc companies;\n");
+      puts("| name        | varchar(255) | YES  |     | NULL    |                |");
+      puts("+-------------+--------------+------+-----+---------+----------------+");
+			puts("2 rows in set (0.00 sec)\n");
+			puts("  HINT: type select * from companies;\n");
+		} else if (startsWith(input, "select * from companies") == 1) {
+			puts("+-------------+--------------+");
+			puts("| id          | name         |");
+			puts("+-------------+--------------+");
+			puts("| 1           | Twitter      |");
+      puts("| 2           | github       |");
+      puts("+-------------+--------------+");
+			puts("2 rows in set (0.00 sec)\n");
+			puts("  HINT: type select * from companies;\n");
 		} else {
 			puts("\nI don't understand.\n");
 		}
