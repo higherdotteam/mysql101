@@ -22,7 +22,7 @@ func main() {
 			break
 		} else if strings.HasSuffix(s, ";") == false {
 			fmt.Println("\nYou forgot the ;\n")
-		} else {
+		} else if s == "show tables;" {
 			fmt.Println("+-------------------+")
 			fmt.Println("| Tables_in_this_db |")
 			fmt.Println("+-------------------+")
@@ -31,6 +31,16 @@ func main() {
 			fmt.Println("| hackernews        |")
 			fmt.Println("+-------------------+")
 			fmt.Println("3 rows in set (0.00 sec)\n")
+			fmt.Println("  HINT: type desc companies;\n")
+		} else if s == "desc companies;" {
+			fmt.Println("+-------------+--------------+------+-----+---------+----------------+")
+			fmt.Println("| Field       | Type         | Null | Key | Default | Extra          |")
+			fmt.Println("+-------------+--------------+------+-----+---------+----------------+")
+			fmt.Println("| id          | int(11)      | NO   | PRI | NULL    | auto_increment |")
+			fmt.Println("3 rows in set (0.00 sec)\n")
+			fmt.Println("  HINT: type desc companies;\n")
+		} else {
+			fmt.Println("\nI don't understand.\n")
 		}
 		fmt.Print("mysql> ")
 		line, _, _ = bio.ReadLine()
