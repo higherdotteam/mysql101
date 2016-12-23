@@ -3,7 +3,11 @@
 #include <string.h>
 #include <readline/readline.h>
 
+char **name_completion(const char *, int, int);
+char *name_generator(const char *, int);
+
 int main(int argc, char** argv) {
+  rl_attempted_completion_function = name_completion;
 
 	puts("\nmysql101 by higher.team\n");
 	puts("http://higher.team is the new MBA\n");
@@ -48,4 +52,13 @@ int main(int argc, char** argv) {
   }
 
   return 0;
+}
+
+char **name_completion(const char *text, int start, int end) {
+  rl_attempted_completion_over = 1;
+  return rl_completion_matches(text, name_generator);
+}
+
+char *name_generator(const char *text, int state) {
+  return NULL;
 }
