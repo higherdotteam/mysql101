@@ -45,6 +45,8 @@ int main(int argc, char** argv) {
     }
     if (strcmp(input, "?") == 0 || strcmp(input, "help") == 0 || strcmp(input, "help;") == 0) {
 			puts("\nshow tables;");
+			puts("desc tablename;");
+			puts("select * from tablename;");
 			puts("help");
 			puts("quit\n");
       continue;
