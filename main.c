@@ -43,11 +43,10 @@ int main(int argc, char** argv) {
       puts("Bye");
       return 0;
     }
-    if (strcmp(input, "help") == 0 || strcmp(input, "help;") == 0) {
+    if (strcmp(input, "?") == 0 || strcmp(input, "help") == 0 || strcmp(input, "help;") == 0) {
 			puts("\nshow tables;");
 			puts("help");
-			puts("quit");
-			puts("\n");
+			puts("quit\n");
       continue;
     }
 
@@ -62,7 +61,6 @@ int main(int argc, char** argv) {
 			puts("| hackernews        |");
 			puts("+-------------------+");
 			puts("3 rows in set (0.00 sec)\n");
-			puts("  HINT: type desc companies;\n");
 		} else if (startsWith(input, "desc ") == 1 || startsWith(input, "describe ") == 1) {
 			puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("| Field       | Type         | Null | Key | Default | Extra          |");
@@ -71,7 +69,6 @@ int main(int argc, char** argv) {
       puts("| name        | varchar(255) | YES  |     | NULL    |                |");
       puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("2 rows in set (0.00 sec)\n");
-			puts("  HINT: type select * from companies;\n");
 		} else if (startsWith(input, "select ") == 1) {
 			puts("+-------------+--------------+");
 			puts("| id          | name         |");
@@ -80,7 +77,6 @@ int main(int argc, char** argv) {
       puts("| 2           | github       |");
       puts("+-------------+--------------+");
 			puts("2 rows in set (0.00 sec)\n");
-			puts("  HINT: type select * from companies;\n");
 		} else {
 			puts("\nI don't understand.\n");
 		}
@@ -92,7 +88,8 @@ int main(int argc, char** argv) {
     } else if (step == 2) {
 			puts("Great, now we are having a conversation.");
 			puts("This is what you need to learn, how to talk to mysql.");
-			puts("When you get stuck, type help. Try typing help now:\n");
+			puts("When you get stuck, type help. Try typing help and try a new command.\n");
+    } else if (step == 3) {
     }
 
     step++;
