@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
 			puts("\nshow tables;");
 			puts("desc tablename;");
 			puts("select * from tablename;");
+			puts("insert into tablename (name) values ('boo');");
 			puts("help");
 			puts("quit\n");
       continue;
@@ -79,6 +80,8 @@ int main(int argc, char** argv) {
       puts("| 2           | github       |");
       puts("+-------------+--------------+");
 			puts("2 rows in set (0.00 sec)\n");
+		} else if (startsWith(input, "insert ") == 1) {
+			puts("Query OK, 1 row affected (0.01 sec)\n");
 		} else {
 			puts("\nI don't understand.\n");
 		}
