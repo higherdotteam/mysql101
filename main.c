@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 	puts("  Hello future higher.team MBA student, welcome to mysql101.");
 	puts("  This is a fake version of the popular database program mysql.");
 	puts("  It is designed to help you learn how to type commands to mysql.");
-	puts("  Let's get started. Type anything and hit enter.\n");
+	puts("  Let's get started. Type hello and hit enter.\n");
 
   int step = 1;
 
@@ -43,6 +43,14 @@ int main(int argc, char** argv) {
       puts("Bye");
       return 0;
     }
+    if (strcmp(input, "help") == 0 || strcmp(input, "help;") == 0) {
+			puts("\nshow tables;");
+			puts("help");
+			puts("quit");
+			puts("\n");
+      continue;
+    }
+
     if (last != ';') {
       puts("\nYou forgot the ;\n");
 		} else if (startsWith(input, "show tables") == 1) {
@@ -80,9 +88,11 @@ int main(int argc, char** argv) {
     free(input);
 
     if (step == 1) {
-			puts("Try it again, type something else.\n");
+			puts("Try it again, type hello;\n");
     } else if (step == 2) {
-			puts("Great, now we are having a conversation.\n");
+			puts("Great, now we are having a conversation.");
+			puts("This is what you need to learn, how to talk to mysql.");
+			puts("When you get stuck, type help. Try typing help now:\n");
     }
 
     step++;
