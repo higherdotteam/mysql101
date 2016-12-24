@@ -24,7 +24,13 @@ int main(int argc, char** argv) {
 
 	puts("\nmysql101 by higher.team\n");
 	puts("http://higher.team is the new MBA\n");
-	puts("  HINT: type show tables;\n");
+	puts("  READ THIS FIRST:\n");
+	puts("  Hello future higher.team MBA student, welcome to mysql101.");
+	puts("  This is a fake version of the popular database program mysql.");
+	puts("  It is designed to help you learn how to type commands to mysql.");
+	puts("  Let's get started. Type anything and hit enter.\n");
+
+  int step = 1;
 
   while (1) {
 
@@ -49,7 +55,7 @@ int main(int argc, char** argv) {
 			puts("+-------------------+");
 			puts("3 rows in set (0.00 sec)\n");
 			puts("  HINT: type desc companies;\n");
-		} else if (startsWith(input, "desc companies") == 1) {
+		} else if (startsWith(input, "desc ") == 1 || startsWith(input, "describe ") == 1) {
 			puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("| Field       | Type         | Null | Key | Default | Extra          |");
 			puts("+-------------+--------------+------+-----+---------+----------------+");
@@ -58,7 +64,7 @@ int main(int argc, char** argv) {
       puts("+-------------+--------------+------+-----+---------+----------------+");
 			puts("2 rows in set (0.00 sec)\n");
 			puts("  HINT: type select * from companies;\n");
-		} else if (startsWith(input, "select * from companies") == 1) {
+		} else if (startsWith(input, "select ") == 1) {
 			puts("+-------------+--------------+");
 			puts("| id          | name         |");
 			puts("+-------------+--------------+");
@@ -72,6 +78,14 @@ int main(int argc, char** argv) {
 		}
 
     free(input);
+
+    if (step == 1) {
+			puts("Try it again, type something else.\n");
+    } else if (step == 2) {
+			puts("Great, now we are having a conversation.\n");
+    }
+
+    step++;
 
   }
 
